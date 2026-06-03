@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear()
 
     <div class="max-w-6xl mx-auto text-center">
       <p class="font-body text-text-secondary text-sm">
-        &copy; {{ currentYear }} Elias. All rights reserved.
+        &copy; {{ currentYear }} sh1r00. All rights reserved.
       </p>
     </div>
   </footer>
