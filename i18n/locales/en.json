@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Elias",
+    "subtitle": "Mechanic",
+    "tagline": "{years}+ years of hands-on experience bringing engines back to life.",
+    "cta": "Book a Service",
+    "ctaDesktop": "Learn More ↓"
+  },
+  "about": {
+    "heading": "About Me",
+    "description": "A dedicated industrial craftsman with a passion for precision mechanics, engine diagnostics, and restoring machines to peak performance."
+  },
+  "skills": {
+    "heading": "Skills",
+    "categories": {
+      "engine": "Engine Diagnostics",
+      "electrical": "Electrical Systems",
+      "brakes": "Brake & Suspension",
+      "transmission": "Transmission Repair",
+      "welding": "Welding & Fabrication",
+      "maintenance": "Preventive Maintenance"
+    }
+  },
+  "projects": {
+    "heading": "Projects",
+    "viewProject": "View Project",
+    "liveDemo": "Live Demo",
+    "source": "Source"
+  },
+  "contact": {
+    "heading": "Let's Connect",
+    "description": "Have a project in mind or need a reliable mechanic? Let's talk.",
+    "form": {
+      "heading": "Book a Service",
+      "description": "Tell us about your vehicle issue.",
+      "fullName": "Full Name",
+      "vehicleMakeModel": "Vehicle Make & Model",
+      "email": "Email",
+      "phone": "Phone",
+      "contactPreference": "Preferred Contact Method",
+      "emailOption": "Email",
+      "phoneOption": "Phone",
+      "problemDescription": "Describe the Problem",
+      "problemPlaceholder": "e.g., My car is making a grinding noise when braking...",
+      "submit": "Submit Request",
+      "success": "Your request has been submitted successfully.",
+      "successHeading": "Request Sent!",
+      "successDescription": "We'll get back to you shortly.",
+      "submitAnother": "Submit another request",
+      "required": "This field is required"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} sh1r00. All rights reserved.",
+    "builtWith": "Built with Nuxt & Tailwind CSS"
+  },
+  "pwa": {
+    "heading": "Install App",
+    "description": "Add this site to your home screen for quick access and offline support.",
+    "install": "Install",
+    "dismiss": "Not now"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content",
+    "languageSwitcher": "Change language",
+    "darkModeToggle": "Toggle dark mode",
+    "mobileMenuToggle": "Toggle mobile menu"
+  },
+  "og": {
+    "title": "Elias | Mechanic Portfolio",
+    "description": "Professional mechanic portfolio showcasing engine diagnostics, repair services, and industrial craftsmanship."
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language"
+  }
+}

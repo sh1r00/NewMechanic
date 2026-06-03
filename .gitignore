@@ -1,3 +1,13 @@
+# Nuxt dev/build outputs
+node_modules
+.nuxt
+.output
+dist
+
+# Local env files
+*.local
+.env
+
 # Logs
 logs
 *.log
@@ -6,11 +16,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*

@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "about": "Acerca de",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Elias",
+    "subtitle": "Mecánico",
+    "tagline": "{years}+ años de experiencia práctica devolviendo la vida a los motores.",
+    "cta": "Reservar un servicio",
+    "ctaDesktop": "Más información ↓"
+  },
+  "about": {
+    "heading": "Sobre mí",
+    "description": "Un artesano industrial dedicado con pasión por la mecánica de precisión, el diagnóstico de motores y la restauración de máquinas a su máximo rendimiento."
+  },
+  "skills": {
+    "heading": "Habilidades",
+    "categories": {
+      "engine": "Diagnóstico de Motores",
+      "electrical": "Sistemas Eléctricos",
+      "brakes": "Frenos y Suspensión",
+      "transmission": "Reparación de Transmisión",
+      "welding": "Soldadura y Fabricación",
+      "maintenance": "Mantenimiento Preventivo"
+    }
+  },
+  "projects": {
+    "heading": "Proyectos",
+    "viewProject": "Ver Proyecto",
+    "liveDemo": "Demo en vivo",
+    "source": "Código fuente"
+  },
+  "contact": {
+    "heading": "Conectemos",
+    "description": "¿Tienes un proyecto en mente o necesitas un mecánico confiable? Hablemos.",
+    "form": {
+      "heading": "Reservar un servicio",
+      "description": "Cuéntanos sobre el problema de tu vehículo.",
+      "fullName": "Nombre completo",
+      "vehicleMakeModel": "Marca y modelo del vehículo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "contactPreference": "Método de contacto preferido",
+      "emailOption": "Correo electrónico",
+      "phoneOption": "Teléfono",
+      "problemDescription": "Describe el problema",
+      "problemPlaceholder": "ej. Mi coche hace un ruido chirriante al frenar...",
+      "submit": "Enviar solicitud",
+      "success": "Su solicitud ha sido enviada con éxito.",
+      "successHeading": "¡Solicitud enviada!",
+      "successDescription": "Nos pondremos en contacto contigo pronto.",
+      "submitAnother": "Enviar otra solicitud",
+      "required": "Este campo es obligatorio"
+    }
+  },
+  "footer": {
+    "copyright": "© {year} sh1r00. Todos los derechos reservados.",
+    "builtWith": "Construido con Nuxt y Tailwind CSS"
+  },
+  "pwa": {
+    "heading": "Instalar aplicación",
+    "description": "Añade este sitio a tu pantalla de inicio para un acceso rápido y soporte sin conexión.",
+    "install": "Instalar",
+    "dismiss": "Ahora no"
+  },
+  "accessibility": {
+    "skipToContent": "Saltar al contenido",
+    "languageSwitcher": "Cambiar idioma",
+    "darkModeToggle": "Alternar modo oscuro",
+    "mobileMenuToggle": "Alternar menú móvil"
+  },
+  "og": {
+    "title": "Elias | Portafolio de Mecánico",
+    "description": "Portafolio profesional de mecánico que muestra diagnóstico de motores, servicios de reparación y artesanía industrial."
+  },
+  "language": {
+    "label": "Idioma",
+    "select": "Seleccionar idioma"
+  }
+}
