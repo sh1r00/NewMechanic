@@ -15,7 +15,7 @@ const form = ref({
 })
 
 const logger = useLogger({ tag: 'ContactForm' })
-const { withLoading } = useLoading()
+const loadingStore = useLoadingStore()
 const isSubmitted = ref(false)
 
 const isValid = computed(() => {
@@ -32,7 +32,7 @@ const isValid = computed(() => {
 async function handleSubmit() {
   if (!isValid.value) return
 
-  await withLoading(async () => {
+  await loadingStore.withLoading(async () => {
     logger.info('Service request submitted', {
       name: form.value.fullName,
       vehicle: form.value.vehicleMakeModel,

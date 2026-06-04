@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const { isLoading } = useLoading()
+const loadingStore = useLoadingStore()
 </script>
 
 <template>
   <Transition name="loading-fade">
     <div
-      v-if="isLoading"
+      v-if="loadingStore.isLoading"
       class="fixed inset-0 z-[9998] flex items-center justify-center bg-background/80 backdrop-blur-sm"
       aria-live="assertive"
       aria-label="Loading"

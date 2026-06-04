@@ -21,6 +21,9 @@
 const darkModeStore = useDarkModeStore()
 darkModeStore.initialize()
 
+const pwaInstallStore = usePwaInstallStore()
+pwaInstallStore.initialize()
+
 // Enable locale-aware head management (html lang, dir, and SEO meta tags)
 useLocaleHead({ addDirAttribute: true, addSeoAttributes: true })
 
