@@ -36,6 +36,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
       title: 'Elias | Mechanic Portfolio',
       meta: [
+        { name: 'description', content: 'Professional mechanic portfolio — Engine diagnostics, brake systems, electrical repair, and custom fabrication.' },
         { name: 'theme-color', content: '#d97706' },
         { name: 'msapplication-TileColor', content: '#d97706' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
@@ -87,17 +88,17 @@ export default defineNuxtConfig({
       orientation: 'portrait-primary',
       categories: ['business', 'productivity'],
       icons: [
-        { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
-        { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+        { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
         { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
       ]
     },
     workbox: {
       // Precache all static assets for full offline support
       globPatterns: ['**/*.{js,css,html,png,svg,ico,woff2,json,webmanifest}'],
-      // Offline fallback page
-      navigateFallback: '/index.html',
-      navigateFallbackDenylist: [/^\/api/],
+      // Offline fallback — the root index is always precached
+      navigateFallback: '/',
+      navigateFallbackDenylist: [/^\/api/, /\.[^/]+$/],
       // Clean up old caches on update
       cleanupOutdatedCaches: true,
       // Skip waiting — new SW activates immediately
