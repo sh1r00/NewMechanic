@@ -1,12 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
 
+const baseUrl = process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+const basePath = new URL(baseUrl).pathname // e.g. '/NewMechanic' or '/'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   future: {
     compatibilityVersion: 4
   },
   ssr: true,
+  runtimeConfig: {
+    public: {
+      baseUrl,
+    },
+  },
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/i18n',
@@ -15,13 +23,13 @@ export default defineNuxtConfig({
     '@nuxtjs/seo'
   ],
   site: {
-    url: 'https://sh1r00.github.io',
+    url: baseUrl,
     name: 'Elias | Mechanic Portfolio',
     description: 'Professional mechanic portfolio — Engine diagnostics, brake systems, electrical repair, and custom fabrication.',
     defaultLocale: 'en'
   },
   app: {
-    baseURL: '/',
+    baseURL: basePath,
     head: {
       htmlAttrs: {},
       charset: 'utf-8',
@@ -136,7 +144,7 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    baseUrl: 'https://sh1r00.github.io/NewMechanic',
+    baseUrl: baseUrl,
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
       { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
