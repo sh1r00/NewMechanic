@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
 
-const baseUrl = process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+const baseUrl = process.env.BASE_URL || 'http://localhost:3000'
 const basePath = new URL(baseUrl).pathname // e.g. '/NewMechanic' or '/'
 
 export default defineNuxtConfig({
