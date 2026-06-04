@@ -114,6 +114,9 @@ export default defineNuxtConfig({
     }
   },
   security: {
+    ssg: {
+      hashScripts: false, // Don't add SHA hashes — they override 'unsafe-inline'
+    },
     headers: {
       contentSecurityPolicy: {
         'default-src': ["'self'"],

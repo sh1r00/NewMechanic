@@ -2,6 +2,9 @@
   "name": "mechanic-portfolio",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "theme": {
     "primary": "#d97706",
     "secondary": "#5d4037",
