@@ -3,7 +3,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"
   NUXT_PUBLIC_BASE_URL = "https://your-site.netlify.app"
 
 # SPA fallback for client-side routing
