@@ -1,9 +1,9 @@
 <template>
   <div class="min-h-screen bg-background text-on-background font-body transition-colors duration-300">
-    <!-- Skip to content link for keyboard/screen reader users -->
+    <!-- Skip to content: invisible until keyboard-focused, then appears at top -->
     <a
       href="#main-content"
-      class="skip-to-content sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded-lg focus:font-body focus:text-sm focus:shadow-elevation-2 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+      class="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-[9999] focus-visible:px-4 focus-visible:py-2 focus-visible:bg-primary focus-visible:text-on-primary focus-visible:rounded-lg focus-visible:font-body focus-visible:text-sm focus-visible:shadow-elevation-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       {{ $t('accessibility.skipToContent') }}
     </a>

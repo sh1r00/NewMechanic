@@ -33,10 +33,20 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: {},
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
       title: 'Elias | Mechanic Portfolio',
+      meta: [
+        { name: 'theme-color', content: '#d97706' },
+        { name: 'msapplication-TileColor', content: '#d97706' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'apple-mobile-web-app-title', content: 'Elias Portfolio' },
+        { name: 'format-detection', content: 'telephone=no' },
+      ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/icons/icon-192x192.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/icons/icon-192x192.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
@@ -61,16 +71,25 @@ export default defineNuxtConfig({
   },
   pwa: {
     registerType: 'prompt',
+    devOptions: {
+      enabled: true, // Enable service worker in dev for testing
+    },
     manifest: {
+      id: '/',
       name: 'Elias | Mechanic Portfolio',
       short_name: 'Elias Portfolio',
       description: 'Professional mechanic portfolio showcasing skills and projects',
+      start_url: '/',
+      scope: '/',
       theme_color: '#d97706',
       background_color: '#f5f0eb',
       display: 'standalone',
+      orientation: 'portrait-primary',
+      categories: ['business', 'productivity'],
       icons: [
-        { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
-        { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' }
+        { src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+        { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+        { src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
       ]
     },
     workbox: {

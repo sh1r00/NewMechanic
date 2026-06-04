@@ -14,6 +14,7 @@ export const usePwaInstallStore = defineStore('pwaInstall', {
   state: () => ({
     promptState: 'hidden' as PromptState,
     deferredPrompt: null as BeforeInstallPromptEvent | null,
+    canInstall: false,
   }),
 
   getters: {
@@ -27,29 +28,52 @@ export const usePwaInstallStore = defineStore('pwaInstall', {
       const logger = useLogger({ tag: 'PwaInstallStore' })
       const isDismissed = this._checkDismissed()
 
+      // Show banner immediately if not dismissed (even before beforeinstallprompt)
+      // This ensures users see the prompt on first visit
+      if (!isDismissed) {
+        this.promptState = 'visible'
+        logger.debug('Install banner shown (awaiting beforeinstallprompt)')
+      }
+
       window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault()
         this.deferredPrompt = e as BeforeInstallPromptEvent
+        this.canInstall = true
+        logger.debug('beforeinstallprompt captured — install ready')
 
+        // Show if not already visible and not dismissed
         if (!isDismissed && this.promptState === 'hidden') {
           this.promptState = 'visible'
-          logger.debug('Install prompt ready — banner shown')
         }
       })
 
       window.addEventListener('appinstalled', () => {
         this.promptState = 'hidden'
         this.deferredPrompt = null
+        this.canInstall = false
         this._setDismissed()
         logger.info('App installed successfully')
       })
+
+      // Hide if already installed (standalone mode)
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        this.promptState = 'hidden'
+        this._setDismissed()
+      }
     },
 
     async install() {
       if (!import.meta.client) return
-      if (!this.deferredPrompt) return
 
       const logger = useLogger({ tag: 'PwaInstallStore' })
+
+      if (!this.deferredPrompt) {
+        // Fallback: no beforeinstallprompt yet, guide user to browser menu
+        logger.debug('No deferred prompt — browser may not support install')
+        this.dismiss()
+        return
+      }
+
       this.promptState = 'installing'
 
       try {
