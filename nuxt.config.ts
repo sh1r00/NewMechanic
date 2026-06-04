@@ -57,7 +57,7 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
   nitro: {
-    preset: 'github-pages'
+    preset: 'netlify-static'
   },
   pwa: {
     registerType: 'prompt',
