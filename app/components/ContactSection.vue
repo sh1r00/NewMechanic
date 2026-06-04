@@ -12,14 +12,14 @@ const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${mapLon - 
 <template>
   <section
     id="contact"
-    class="py-20 px-6 bg-bg-secondary"
+    class="py-20 px-6 bg-surface-container-low"
     style="content-visibility: auto; contain-intrinsic-size: auto 800px"
   >
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="font-display text-5xl md:text-6xl text-text-primary mb-4">
+      <h2 class="font-display text-5xl md:text-6xl text-on-background mb-4">
         {{ $t('contact.heading') }}
       </h2>
-      <p class="font-body text-text-secondary text-lg md:text-xl mb-10">
+      <p class="font-body text-on-surface-variant text-lg md:text-xl mb-10">
         {{ $t('contact.description') }}
       </p>
 
@@ -30,10 +30,10 @@ const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${mapLon - 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          class="w-14 h-14 rounded-full border border-border bg-surface flex items-center justify-center transition-all hover:ring-2 hover:ring-accent hover:ring-offset-2 hover:ring-offset-bg-secondary"
+          class="w-14 h-14 rounded-full border border-outline-variant bg-surface-container flex items-center justify-center transition-all hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-surface-container-low"
         >
           <svg
-            class="w-6 h-6 text-text-primary"
+            class="w-6 h-6 text-on-background"
             viewBox="0 0 24 24"
             fill="currentColor"
             aria-hidden="true"
@@ -48,10 +48,10 @@ const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${mapLon - 
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          class="w-14 h-14 rounded-full border border-border bg-surface flex items-center justify-center transition-all hover:ring-2 hover:ring-accent hover:ring-offset-2 hover:ring-offset-bg-secondary"
+          class="w-14 h-14 rounded-full border border-outline-variant bg-surface-container flex items-center justify-center transition-all hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-surface-container-low"
         >
           <svg
-            class="w-6 h-6 text-text-primary"
+            class="w-6 h-6 text-on-background"
             viewBox="0 0 24 24"
             fill="currentColor"
             aria-hidden="true"
@@ -62,7 +62,7 @@ const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${mapLon - 
       </div>
 
       <!-- Interactive Map -->
-      <div class="rounded-lg overflow-hidden border border-border shadow-lg">
+      <div class="rounded-lg overflow-hidden border border-outline-variant shadow-elevation-2">
         <iframe
           :src="mapSrc"
           width="100%"
@@ -74,11 +74,11 @@ const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${mapLon - 
           loading="lazy"
           allowfullscreen
         ></iframe>
-        <div class="bg-surface px-4 py-3 flex items-center gap-2 text-left">
-          <svg class="w-5 h-5 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <div class="bg-surface-container px-4 py-3 flex items-center gap-2 text-left">
+          <svg class="w-5 h-5 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
           </svg>
-          <span class="font-body text-sm text-text-secondary">742 South Congress Ave, Austin, TX 78704</span>
+          <span class="font-body text-sm text-on-surface-variant">742 South Congress Ave, Austin, TX 78704</span>
         </div>
       </div>
     </div>

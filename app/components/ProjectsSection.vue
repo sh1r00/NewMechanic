@@ -42,8 +42,8 @@ onUnmounted(() => {
     style="content-visibility: auto; contain-intrinsic-size: auto 800px"
   >
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-display text-4xl text-text-primary mb-2">{{ $t('projects.heading') }}</h2>
-      <div class="w-12 h-1 bg-accent rounded mb-12"></div>
+      <h2 class="font-display text-4xl text-on-background mb-2">{{ $t('projects.heading') }}</h2>
+      <div class="w-12 h-1 bg-primary rounded mb-12"></div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div

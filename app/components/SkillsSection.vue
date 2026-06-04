@@ -7,14 +7,14 @@ const skills = portfolioData.skills
 <template>
   <section
     id="skills"
-    class="py-20 px-6 bg-bg-secondary"
+    class="py-20 px-6 bg-surface-container-low"
     style="content-visibility: auto; contain-intrinsic-size: auto 500px;"
   >
     <div class="max-w-6xl mx-auto">
       <!-- Section heading -->
-      <h2 class="font-display text-4xl md:text-5xl text-text-primary mb-12 tracking-wide">
+      <h2 class="font-display text-4xl md:text-5xl text-on-background mb-12 tracking-wide">
         {{ $t('skills.heading') }}
-        <span class="block mt-2 w-16 h-1 bg-accent rounded"></span>
+        <span class="block mt-2 w-16 h-1 bg-primary rounded"></span>
       </h2>
 
       <!-- Responsive grid with masonry-like offset -->

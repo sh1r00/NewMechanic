@@ -11,7 +11,7 @@ defineProps<{
 
 <template>
   <article
-    class="bg-surface rounded-lg overflow-hidden border border-border transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+    class="bg-surface-container rounded-lg overflow-hidden border border-outline-variant transition-all duration-200 hover:-translate-y-1 hover:shadow-elevation-3"
   >
     <img
       :src="image"
@@ -22,29 +22,29 @@ defineProps<{
       class="w-full h-48 object-cover"
     />
     <div class="p-5">
-      <h3 class="font-display text-xl text-text-primary mb-2">{{ title }}</h3>
-      <p class="font-body text-text-secondary text-sm line-clamp-3 mb-4">
+      <h3 class="font-display text-xl text-on-surface mb-2">{{ title }}</h3>
+      <p class="font-body text-on-surface-variant text-sm line-clamp-3 mb-4">
         {{ description }}
       </p>
       <div class="flex flex-wrap gap-2 mb-4">
         <span
           v-for="tag in tags"
           :key="tag"
-          class="bg-bg-secondary text-accent rounded-full px-3 py-1 text-xs font-medium"
+          class="bg-surface-container-low text-primary rounded-full px-3 py-1 text-xs font-medium"
         >
           {{ tag }}
         </span>
       </div>
       <div
         v-if="liveUrl || repoUrl"
-        class="flex items-center gap-4 pt-3 border-t border-border"
+        class="flex items-center gap-4 pt-3 border-t border-outline-variant"
       >
         <a
           v-if="liveUrl"
           :href="liveUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-hover font-medium transition-colors"
+          class="inline-flex items-center gap-1 text-sm text-primary hover:text-inverse-primary font-medium transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ defineProps<{
           :href="repoUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-sm text-accent hover:text-accent-hover font-medium transition-colors"
+          class="inline-flex items-center gap-1 text-sm text-primary hover:text-inverse-primary font-medium transition-colors"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,86 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "./material-tokens.css";
 
+/* Enable class-based dark mode */
+@variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   Tailwind v4 Theme: Map Material 3 tokens
+   to Tailwind utility classes.
+
+   Usage examples:
+     bg-primary        → M3 primary
+     text-on-primary   → M3 on-primary
+     bg-surface        → M3 surface
+     shadow-elevation-2 → M3 elevation 2
+   ============================================ */
+@theme {
+  /* Fonts */
+  --font-display: "Bebas Neue", cursive;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Primary */
+  --color-primary: var(--md-sys-color-primary);
+  --color-on-primary: var(--md-sys-color-on-primary);
+  --color-primary-container: var(--md-sys-color-primary-container);
+  --color-on-primary-container: var(--md-sys-color-on-primary-container);
+  --color-inverse-primary: var(--md-sys-color-inverse-primary);
+
+  /* Secondary */
+  --color-secondary: var(--md-sys-color-secondary);
+  --color-on-secondary: var(--md-sys-color-on-secondary);
+  --color-secondary-container: var(--md-sys-color-secondary-container);
+  --color-on-secondary-container: var(--md-sys-color-on-secondary-container);
+
+  /* Tertiary */
+  --color-tertiary: var(--md-sys-color-tertiary);
+  --color-on-tertiary: var(--md-sys-color-on-tertiary);
+  --color-tertiary-container: var(--md-sys-color-tertiary-container);
+  --color-on-tertiary-container: var(--md-sys-color-on-tertiary-container);
+
+  /* Error */
+  --color-error: var(--md-sys-color-error);
+  --color-on-error: var(--md-sys-color-on-error);
+  --color-error-container: var(--md-sys-color-error-container);
+  --color-on-error-container: var(--md-sys-color-on-error-container);
+
+  /* Surface */
+  --color-surface: var(--md-sys-color-surface);
+  --color-on-surface: var(--md-sys-color-on-surface);
+  --color-surface-variant: var(--md-sys-color-surface-variant);
+  --color-on-surface-variant: var(--md-sys-color-on-surface-variant);
+  --color-surface-container-lowest: var(--md-sys-color-surface-container-lowest);
+  --color-surface-container-low: var(--md-sys-color-surface-container-low);
+  --color-surface-container: var(--md-sys-color-surface-container);
+  --color-surface-container-high: var(--md-sys-color-surface-container-high);
+  --color-surface-container-highest: var(--md-sys-color-surface-container-highest);
+  --color-inverse-surface: var(--md-sys-color-inverse-surface);
+  --color-inverse-on-surface: var(--md-sys-color-inverse-on-surface);
+
+  /* Outline */
+  --color-outline: var(--md-sys-color-outline);
+  --color-outline-variant: var(--md-sys-color-outline-variant);
+
+  /* Background */
+  --color-background: var(--md-sys-color-background);
+  --color-on-background: var(--md-sys-color-on-background);
+
+  /* Misc */
+  --color-shadow: var(--md-sys-color-shadow);
+  --color-scrim: var(--md-sys-color-scrim);
+
+  /* Elevation shadows */
+  --shadow-elevation-0: var(--md-sys-elevation-0);
+  --shadow-elevation-1: var(--md-sys-elevation-1);
+  --shadow-elevation-2: var(--md-sys-elevation-2);
+  --shadow-elevation-3: var(--md-sys-elevation-3);
+  --shadow-elevation-4: var(--md-sys-elevation-4);
+  --shadow-elevation-5: var(--md-sys-elevation-5);
+}
+
+/* ============================================
+   Base styles
+   ============================================ */
 @layer base {
   /* Global visible focus indicators for all interactive elements */
   a:focus-visible,
@@ -10,32 +89,10 @@
   select:focus-visible,
   textarea:focus-visible,
   [tabindex]:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--md-sys-color-primary);
     outline-offset: 2px;
     border-radius: 4px;
   }
-}
-
-:root {
-  --color-bg-primary: #f5f0eb;
-  --color-bg-secondary: #e8e2db;
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #4a4a4a;
-  --color-accent: #d97706;
-  --color-accent-hover: #b45309;
-  --color-surface: #ffffff;
-  --color-border: #d4cdc5;
-}
-
-.dark {
-  --color-bg-primary: #0f0f0f;
-  --color-bg-secondary: #1a1a1a;
-  --color-text-primary: #f5f0eb;
-  --color-text-secondary: #a8a29e;
-  --color-accent: #f59e0b;
-  --color-accent-hover: #fbbf24;
-  --color-surface: #262626;
-  --color-border: #3d3d3d;
 }
 
 html {
@@ -43,9 +100,9 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -71,7 +128,6 @@ body::before {
     scroll-behavior: auto !important;
   }
 
-  /* Preserve functional transitions in minimal form */
   .modal-enter-active,
   .modal-leave-active {
     transition-duration: 0.1ms !important;

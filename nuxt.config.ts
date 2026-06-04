@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   future: {
@@ -6,7 +8,6 @@ export default defineNuxtConfig({
   },
   ssr: true,
   modules: [
-    '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     '@nuxtjs/i18n',
     '@vite-pwa/nuxt',
@@ -20,7 +21,7 @@ export default defineNuxtConfig({
     defaultLocale: 'en'
   },
   app: {
-    baseURL: '/NewMechanic',
+    baseURL: '/',
     head: {
       htmlAttrs: {},
       charset: 'utf-8',
@@ -124,7 +125,7 @@ export default defineNuxtConfig({
     robotsTxt: false
   },
   ogImage: {
-    enabled: process.env.NODE_ENV === 'production',
+    enabled: false,
     zeroRuntime: true,
     defaults: {
       width: 1200,
@@ -153,6 +154,9 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    plugins: [
+      tailwindcss(),
+    ],
     optimizeDeps: {
       include: [
         '@unhead/schema-org/vue',
@@ -160,5 +164,10 @@ export default defineNuxtConfig({
         '@vue/devtools-kit',
       ]
     }
-  }
+  },
+  $production: {
+    ogImage: {
+      enabled: true,
+    },
+  },
 })

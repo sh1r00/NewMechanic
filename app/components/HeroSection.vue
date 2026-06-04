@@ -22,12 +22,12 @@ function closeModal() {
 <template>
   <section
     id="hero"
-    class="relative min-h-screen flex items-center overflow-hidden pt-20 bg-bg-primary"
+    class="relative min-h-screen flex items-center overflow-hidden pt-20 bg-background"
   >
     <!-- Geometric SVG background pattern -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.04]" aria-hidden="true">
       <svg
-        class="absolute top-10 left-10 w-64 h-64 text-text-primary"
+        class="absolute top-10 left-10 w-64 h-64 text-on-background"
         viewBox="0 0 100 100"
         fill="none"
         stroke="currentColor"
@@ -37,7 +37,7 @@ function closeModal() {
         <polygon points="50,15 82,32 82,68 50,85 18,68 18,32" />
       </svg>
       <svg
-        class="absolute bottom-20 right-20 w-48 h-48 text-text-primary"
+        class="absolute bottom-20 right-20 w-48 h-48 text-on-background"
         viewBox="0 0 100 100"
         fill="none"
         stroke="currentColor"
@@ -50,7 +50,7 @@ function closeModal() {
         <line x1="5" y1="50" x2="95" y2="50" />
       </svg>
       <svg
-        class="absolute top-1/3 right-1/4 w-32 h-32 text-text-primary"
+        class="absolute top-1/3 right-1/4 w-32 h-32 text-on-background"
         viewBox="0 0 100 100"
         fill="none"
         stroke="currentColor"
@@ -59,7 +59,7 @@ function closeModal() {
         <polygon points="50,3 94,25 94,75 50,97 6,75 6,25" />
       </svg>
       <svg
-        class="absolute bottom-1/4 left-1/3 w-40 h-40 text-text-primary"
+        class="absolute bottom-1/4 left-1/3 w-40 h-40 text-on-background"
         viewBox="0 0 100 100"
         fill="none"
         stroke="currentColor"
@@ -85,7 +85,7 @@ function closeModal() {
             <img
               :src="personal.photoUrl"
               :alt="`Photo of ${personal.name}`"
-              class="w-36 h-36 object-cover rounded-lg shadow-xl border-2 border-accent rotate-2"
+              class="w-36 h-36 object-cover rounded-lg shadow-elevation-3 border-2 border-primary rotate-2"
               width="144"
               height="144"
               @error="onPhotoError"
@@ -93,21 +93,21 @@ function closeModal() {
           </div>
           <div
             v-else
-            class="w-36 h-36 rounded-lg shadow-xl border-2 border-accent rotate-2 bg-bg-secondary flex items-center justify-center"
+            class="w-36 h-36 rounded-lg shadow-elevation-3 border-2 border-primary rotate-2 bg-surface-container-low flex items-center justify-center"
           >
-            <span class="font-display text-5xl text-accent">{{ personal.name.charAt(0) }}</span>
+            <span class="font-display text-5xl text-primary">{{ personal.name.charAt(0) }}</span>
           </div>
         </div>
 
         <!-- Text block (left side on desktop) -->
         <div class="w-full lg:w-[55%] text-center lg:text-left">
-          <h1 class="font-display text-6xl sm:text-7xl lg:text-8xl text-text-primary leading-none hero-animate hero-animate-name">
+          <h1 class="font-display text-6xl sm:text-7xl lg:text-8xl text-on-background leading-none hero-animate hero-animate-name">
             {{ $t('hero.title') }}
           </h1>
-          <p class="font-display text-4xl sm:text-5xl lg:text-6xl text-accent mt-2 hero-animate hero-animate-title">
+          <p class="font-display text-4xl sm:text-5xl lg:text-6xl text-primary mt-2 hero-animate hero-animate-title">
             {{ $t('hero.subtitle') }}
           </p>
-          <p class="font-body text-lg sm:text-xl text-text-secondary mt-4 max-w-lg mx-auto lg:mx-0 hero-animate hero-animate-tagline">
+          <p class="font-body text-lg sm:text-xl text-on-surface-variant mt-4 max-w-lg mx-auto lg:mx-0 hero-animate hero-animate-tagline">
             {{ $t('hero.tagline', { years: personal.yearsExperience }) }}
           </p>
 
@@ -115,7 +115,7 @@ function closeModal() {
           <div class="mt-8 hero-animate hero-animate-cta lg:hidden">
             <button
               type="button"
-              class="inline-block px-8 py-3 bg-accent text-white font-body font-semibold rounded-lg transition-all duration-200 hover:bg-accent-hover hover:ring-2 hover:ring-accent hover:ring-offset-2 hover:ring-offset-bg-primary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg-primary"
+              class="inline-block px-8 py-3 bg-primary text-on-primary font-body font-semibold rounded-lg transition-all duration-200 hover:bg-inverse-primary hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
               @click="openModal"
             >
               {{ $t('hero.cta') }}
@@ -126,7 +126,7 @@ function closeModal() {
           <div class="mt-8 hero-animate hero-animate-cta hidden lg:block">
             <a
               href="#contact"
-              class="inline-block px-6 py-2 border-2 border-accent text-accent font-body font-semibold rounded-lg transition-all duration-200 hover:bg-accent hover:text-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg-primary"
+              class="inline-block px-6 py-2 border-2 border-primary text-primary font-body font-semibold rounded-lg transition-all duration-200 hover:bg-primary hover:text-on-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
             >
               {{ $t('hero.ctaDesktop') }}
             </a>
@@ -160,7 +160,7 @@ function closeModal() {
             <!-- Close button -->
             <button
               type="button"
-              class="absolute top-2 right-2 z-20 w-8 h-8 rounded-full bg-bg-secondary/80 flex items-center justify-center text-text-secondary hover:text-text-primary transition-colors"
+              class="absolute top-2 right-2 z-20 w-8 h-8 rounded-full bg-surface-container-low/80 flex items-center justify-center text-on-surface-variant hover:text-on-background transition-colors"
               aria-label="Close form"
               @click="closeModal"
             >

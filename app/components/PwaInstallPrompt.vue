@@ -60,7 +60,7 @@ function handleKeydown(event: KeyboardEvent) {
       aria-describedby="pwa-prompt-description"
       aria-live="assertive"
       tabindex="-1"
-      class="fixed bottom-0 inset-x-0 z-50 border-t-2 border-accent bg-surface shadow-lg px-4 py-4 sm:px-6 sm:py-5"
+      class="fixed bottom-0 inset-x-0 z-50 border-t-2 border-primary bg-surface-container shadow-elevation-2 px-4 py-4 sm:px-6 sm:py-5"
       @keydown="handleKeydown"
     >
       <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6">
@@ -68,13 +68,13 @@ function handleKeydown(event: KeyboardEvent) {
         <div class="flex-1 min-w-0">
           <h2
             id="pwa-prompt-heading"
-            class="font-display text-xl sm:text-2xl text-text-primary tracking-wide"
+            class="font-display text-xl sm:text-2xl text-on-surface tracking-wide"
           >
             {{ t('pwa.heading') }}
           </h2>
           <p
             id="pwa-prompt-description"
-            class="font-body text-sm text-text-secondary mt-1"
+            class="font-body text-sm text-on-surface-variant mt-1"
           >
             {{ t('pwa.description') }}
           </p>
@@ -84,14 +84,14 @@ function handleKeydown(event: KeyboardEvent) {
         <div class="flex items-center gap-3 shrink-0">
           <button
             type="button"
-            class="font-body text-sm font-medium px-5 py-2 rounded-md bg-accent text-white hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors duration-200"
+            class="font-body text-sm font-medium px-5 py-2 rounded-md bg-primary text-on-primary hover:bg-inverse-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors duration-200"
             @click="install"
           >
             {{ t('pwa.install') }}
           </button>
           <button
             type="button"
-            class="font-body text-sm text-text-secondary hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors duration-200 px-3 py-2 rounded-md"
+            class="font-body text-sm text-on-surface-variant hover:text-on-surface focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors duration-200 px-3 py-2 rounded-md"
             @click="dismiss"
           >
             {{ t('pwa.dismiss') }}

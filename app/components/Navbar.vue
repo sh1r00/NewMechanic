@@ -30,11 +30,11 @@ function closeMobileMenu(): void {
 <template>
   <nav
     aria-label="Main navigation"
-    class="fixed top-0 w-full z-50 bg-bg-primary/80 backdrop-blur-md border-b border-border transition-colors duration-300"
+    class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-outline-variant transition-colors duration-300"
   >
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <!-- Logo / Site Name -->
-      <a href="#" class="font-display text-2xl text-text-primary tracking-wide">
+      <a href="#" class="font-display text-2xl text-on-background tracking-wide">
         ELIAS
       </a>
 
@@ -44,7 +44,7 @@ function closeMobileMenu(): void {
           v-for="item in navItems"
           :key="item.href"
           :href="item.href"
-          class="nav-link font-body text-sm uppercase tracking-wider text-text-secondary hover:text-accent transition-colors duration-200 relative py-1"
+          class="nav-link font-body text-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200 relative py-1"
           :class="{ active: activeSection === item.href.slice(1) }"
         >
           {{ $t(item.key) }}
@@ -61,7 +61,7 @@ function closeMobileMenu(): void {
           type="button"
           :aria-label="$t('accessibility.mobileMenuToggle')"
           :aria-expanded="isMobileMenuOpen"
-          class="p-2 rounded-lg text-text-secondary hover:text-accent transition-colors duration-200"
+          class="p-2 rounded-lg text-on-surface-variant hover:text-primary transition-colors duration-200"
           @click="toggleMobileMenu"
         >
           <svg
@@ -97,13 +97,13 @@ function closeMobileMenu(): void {
       :class="isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'"
       :aria-hidden="!isMobileMenuOpen"
     >
-      <div class="px-4 pb-4 flex flex-col gap-2 border-t border-border">
+      <div class="px-4 pb-4 flex flex-col gap-2 border-t border-outline-variant">
         <a
           v-for="item in navItems"
           :key="item.href"
           :href="item.href"
           :tabindex="isMobileMenuOpen ? 0 : -1"
-          class="nav-link font-body text-sm uppercase tracking-wider text-text-secondary hover:text-accent transition-colors duration-200 py-3 relative"
+          class="nav-link font-body text-sm uppercase tracking-wider text-on-surface-variant hover:text-primary transition-colors duration-200 py-3 relative"
           :class="{ active: activeSection === item.href.slice(1) }"
           @click="closeMobileMenu"
         >
@@ -122,7 +122,7 @@ function closeMobileMenu(): void {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--md-sys-color-primary);
   transition: width 0.3s ease;
 }
 
@@ -132,6 +132,6 @@ function closeMobileMenu(): void {
 }
 
 .nav-link.active {
-  color: var(--color-accent);
+  color: var(--md-sys-color-primary);
 }
 </style>

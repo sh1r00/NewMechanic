@@ -120,7 +120,7 @@ onUnmounted(() => {
     <!-- Toggle Button -->
     <button
       type="button"
-      class="flex items-center gap-1.5 p-2 rounded-lg text-text-secondary hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent transition-colors duration-200"
+      class="flex items-center gap-1.5 p-2 rounded-lg text-on-surface-variant hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors duration-200"
       :aria-expanded="isOpen"
       :aria-label="$t('accessibility.languageSwitcher')"
       aria-haspopup="listbox"
@@ -146,14 +146,14 @@ onUnmounted(() => {
         v-if="isOpen"
         role="listbox"
         :aria-label="$t('language.label')"
-        class="absolute right-0 top-full mt-2 min-w-[140px] bg-surface border border-border rounded-lg shadow-xl overflow-hidden z-50"
+        class="absolute right-0 top-full mt-2 min-w-[140px] bg-surface-container border border-outline-variant rounded-lg shadow-elevation-3 overflow-hidden z-50"
       >
         <!-- Current locale (active indicator) -->
         <div
           :id="`locale-option-${locale}`"
           role="option"
           :aria-selected="true"
-          class="flex items-center gap-3 px-4 py-2.5 text-accent bg-accent/5 border-b border-border cursor-default"
+          class="flex items-center gap-3 px-4 py-2.5 text-primary bg-primary/5 border-b border-outline-variant cursor-default"
         >
           <span class="text-base" aria-hidden="true">{{ localeFlags[locale] }}</span>
           <span class="font-body text-sm">{{ currentLocaleName }}</span>
@@ -169,8 +169,8 @@ onUnmounted(() => {
           :key="loc.code"
           role="option"
           :aria-selected="false"
-          class="flex items-center gap-3 px-4 py-2.5 text-text-secondary hover:text-text-primary hover:bg-bg-secondary transition-colors duration-150 cursor-pointer"
-          :class="{ 'bg-bg-secondary text-text-primary': activeDescendantIndex === index }"
+          class="flex items-center gap-3 px-4 py-2.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors duration-150 cursor-pointer"
+          :class="{ 'bg-surface-container-low text-on-surface': activeDescendantIndex === index }"
           @click="selectLocale(loc.code)"
           @mouseenter="activeDescendantIndex = index"
         >

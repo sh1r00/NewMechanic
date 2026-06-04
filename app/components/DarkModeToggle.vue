@@ -8,7 +8,7 @@ const store = useDarkModeStore()
     <button
       type="button"
       :aria-label="t('accessibility.darkModeToggle')"
-      class="relative p-2 rounded-lg text-text-secondary hover:text-accent transition-colors duration-200"
+      class="relative p-2 rounded-lg text-on-surface-variant hover:text-primary transition-colors duration-200"
       @click="store.toggle()"
     >
       <svg
