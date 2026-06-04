@@ -70,9 +70,9 @@ export default defineNuxtConfig({
     preset: 'static'
   },
   pwa: {
-    registerType: 'prompt',
+    registerType: 'autoUpdate',
     devOptions: {
-      enabled: true, // Enable service worker in dev for testing
+      enabled: true,
     },
     manifest: {
       id: '/',
@@ -93,11 +93,30 @@ export default defineNuxtConfig({
       ]
     },
     workbox: {
-      navigateFallback: '/',
-      globPatterns: ['**/*.{js,css,html,png,svg,ico,woff2,json}'],
+      // Precache all static assets for full offline support
+      globPatterns: ['**/*.{js,css,html,png,svg,ico,woff2,json,webmanifest}'],
+      // Offline fallback page
+      navigateFallback: '/index.html',
+      navigateFallbackDenylist: [/^\/api/],
+      // Clean up old caches on update
+      cleanupOutdatedCaches: true,
+      // Skip waiting — new SW activates immediately
+      skipWaiting: true,
+      clientsClaim: true,
       runtimeCaching: [
         {
-          urlPattern: /\/_i18n\/.*\.json$/,
+          // HTML pages — network first, fall back to cache for offline
+          urlPattern: ({ request }) => request.mode === 'navigate',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'pages-cache',
+            expiration: { maxEntries: 50, maxAgeSeconds: 60 * 60 * 24 * 7 },
+            networkTimeoutSeconds: 3,
+          },
+        },
+        {
+          // Translation files — stale-while-revalidate (instant + background refresh)
+          urlPattern: /.*\.json$/,
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'i18n-translations',
@@ -105,14 +124,17 @@ export default defineNuxtConfig({
           },
         },
         {
-          urlPattern: /\/__og-image__\/.*\.png$/,
+          // Images — cache first
+          urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|ico)$/,
           handler: 'CacheFirst',
           options: {
-            cacheName: 'og-images',
-            expiration: { maxEntries: 50, maxAgeSeconds: 60 * 60 * 24 * 7 },
+            cacheName: 'images-cache',
+            expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
+            cacheableResponse: { statuses: [0, 200] },
           },
         },
         {
+          // Google Fonts stylesheets
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/,
           handler: 'StaleWhileRevalidate',
           options: {
@@ -121,6 +143,7 @@ export default defineNuxtConfig({
           },
         },
         {
+          // Google Fonts webfont files
           urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/,
           handler: 'CacheFirst',
           options: {
@@ -129,8 +152,18 @@ export default defineNuxtConfig({
             cacheableResponse: { statuses: [0, 200] },
           },
         },
+        {
+          // JS/CSS assets — cache first (hashed filenames)
+          urlPattern: /\/_nuxt\/.*\.(?:js|css)$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'nuxt-assets',
+            expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 365 },
+            cacheableResponse: { statuses: [0, 200] },
+          },
+        },
       ],
-    }
+    },
   },
   security: {
     ssg: {
@@ -188,6 +221,10 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    build: {
+      // Target modern browsers + Safari 14+ for maximum compat
+      target: ['es2020', 'chrome87', 'firefox78', 'safari14', 'edge88'],
+    },
     optimizeDeps: {
       include: [
         '@unhead/schema-org/vue',
