@@ -136,6 +136,7 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
+    baseUrl: 'https://sh1r00.github.io/NewMechanic',
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
       { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
