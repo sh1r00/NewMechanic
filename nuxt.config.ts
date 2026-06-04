@@ -57,7 +57,7 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/main.css'],
   nitro: {
-    preset: 'netlify-static'
+    preset: 'static'
   },
   pwa: {
     registerType: 'prompt',
@@ -162,7 +162,7 @@ export default defineNuxtConfig({
       redirectOn: 'root',
     },
     bundle: {
-      dropMessageCompiler: true,
+      onlyLocales: ['en', 'fr', 'es'],
     },
   },
   vite: {
