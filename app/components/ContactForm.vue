@@ -93,6 +93,7 @@ function resetForm() {
           v-model="form.fullName"
           type="text"
           required
+          autocomplete="name"
           aria-required="true"
           aria-describedby="fullName-error"
           class="w-full px-3 py-2 rounded-lg border border-outline-variant bg-background text-on-background font-body text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
@@ -108,6 +109,7 @@ function resetForm() {
           v-model="form.vehicleMakeModel"
           type="text"
           required
+          autocomplete="off"
           aria-required="true"
           aria-describedby="vehicleMakeModel-error"
           class="w-full px-3 py-2 rounded-lg border border-outline-variant bg-background text-on-background font-body text-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
@@ -122,6 +124,7 @@ function resetForm() {
           id="email"
           v-model="form.email"
           type="email"
+          autocomplete="email"
           :required="form.contactPreference === 'email'"
           :aria-required="form.contactPreference === 'email' ? 'true' : undefined"
           aria-describedby="email-error"
@@ -137,6 +140,7 @@ function resetForm() {
           id="phone"
           v-model="form.phone"
           type="tel"
+          autocomplete="tel"
           :required="form.contactPreference === 'phone'"
           :aria-required="form.contactPreference === 'phone' ? 'true' : undefined"
           aria-describedby="phone-error"
